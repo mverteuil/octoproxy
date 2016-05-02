@@ -23,28 +23,21 @@ class PyTest(TestCommand):
 
 
 setuptools.setup(
-    name="jenkins-github-webhook-plus",
+    name="octoproxy",
     version="0.1.2",
-    url="https://github.com/mverteuil/jenkins-github-webhook-plus",
+    url="https://github.com/mverteuil/octoproxy",
 
     author="M. de Verteuil",
     author_email="mverteuil@github.com",
 
-    description="Proxy Service for Sidelaunching Python Tasks on GitHub Events",
+    description="Proxy for Sidelaunching on GitHub Events",
     long_description=open('README.rst').read(),
 
     packages=setuptools.find_packages(),
 
     install_requires=['Flask>=0.10.1', 'requests>=2.0.0'],
-    tests_require=['pytest', 'mock'],
+    tests_require=['pytest'],
     cmdclass={'test': PyTest},
-
-    entry_points={
-        'console_scripts': [
-            'jghwhp = jghwhp.__main__',
-            'run-jghwhp = jghwhp.__main__'
-        ]
-    },
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
