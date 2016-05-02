@@ -6,7 +6,8 @@ Proxy for Sidelaunching on GitHub Events
 Usage
 -----
 
-proxy.py ::
+**proxy.py**::
+
     import octoproxy
 
     @octoproxy.events.register_event('pull_request', repository='*')
@@ -17,6 +18,7 @@ proxy.py ::
         octoproxy.app.run()
 
 ::
+
     $ python proxy.py
 
 
