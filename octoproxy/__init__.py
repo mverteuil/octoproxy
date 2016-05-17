@@ -1,5 +1,4 @@
 """Octoproxy - Service for Sidelaunching on GitHub Events"""
-
 __version__ = '0.1.0'
 __author__ = 'M. de Verteuil <mverteuil@github.com>'
 __all__ = ['app', 'events', ]
@@ -17,6 +16,7 @@ from flask import request
 # Configuration
 # ==================================================================================================
 SECRET = os.environ.get('OCTOPROXY_SECRET')
+WEBHOOK_PATH = os.environ.get('OCTOPROXY_PATH', '/octoproxy/webhook/')
 
 # Headers
 # ==================================================================================================
@@ -78,7 +78,7 @@ app = Flask(__name__)
 events = EventRouter()
 
 
-@app.route('/webhook/', methods=['POST'])
+@app.route(WEBHOOK_PATH, methods=['POST'])
 @with_hmac_verification
 def request_proxy():
     events.trigger_event_handlers(request.headers[EVENT_HEADER], request.json)

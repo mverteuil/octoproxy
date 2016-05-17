@@ -24,7 +24,7 @@ class PyTest(TestCommand):
 
 setuptools.setup(
     name="octoproxy",
-    version="0.1.2",
+    version="1.0",
     url="https://github.com/mverteuil/octoproxy",
 
     author="M. de Verteuil",
